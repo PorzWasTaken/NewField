@@ -1,0 +1,51 @@
+import random
+
+def show_score(attempts_list):
+    if not attempts_list:
+        print("There's currently no record of your best score.")
+    else:
+        print(f"Your best attempts is {min(attempts_list)}")
+
+def start_game():
+    attempts = 0
+    ran_num = random.randint(1, 10)
+    attempts_list = []
+
+    print("Hi player! Welcome to the number guessing game. This is my first game, by the way.")
+    player_name = input("What's your name? ")
+    wanna_play = input(f"Hi {player_name}, would you like to play the game? (Yes/No)")
+
+    if wanna_play.lower() != 'yes':
+        print("Okay, cool.")
+        exit()
+    else:
+        print(f"Let's play the game, {player_name}!")
+
+    while wanna_play.lower() == "yes":
+        try:
+            guess = int(input("Pick a number between 1 to 10: "))
+            if guess < 1 or guess > 10:
+                raise ValueError("Your number is not within the valid range (1 to 10).")
+
+            attempts += 1
+
+            if guess == ran_num:
+                attempts_list.append(attempts)
+                print("Nice, you've got it!")
+                print(f"You took {attempts} attempts.")
+                wanna_play = input("Would you like to play again? (Yes/No)")
+                if wanna_play.lower() != 'yes':
+                    print("That's cool. Have a good one!")
+                    break
+                else:
+                    attempts = 0
+                    ran_num = random.randint(1, 10)
+                    show_score(attempts_list)
+                    continue
+            else:
+                print("Try again.")
+        except ValueError as e:
+            print(e)
+
+if __name__ == "__main__":
+    start_game()

@@ -1,0 +1,10 @@
+import random
+
+options = ("Rock","Paper","Scissors")
+player = None
+computer = random.choice(options)
+
+player = input("Enter choice (Rock, Paper, Scissors): ")
+
+print(f"Player: {player}")
+print(f"Computer: {computer}")

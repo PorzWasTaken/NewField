@@ -1,0 +1,8 @@
+def remainder():
+    FD = int(input("First diversion : "))
+    SD = int(input("Second diversion : "))
+    remainder = (FD % SD)
+    print(f"Remainder : {remainder}")
+
+
+remainder()
