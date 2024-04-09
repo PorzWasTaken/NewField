@@ -1,1 +1,1 @@
-Try coding stuff that i've find it interest.
+Try coding stuff that i've find it interesting.
